@@ -1,10 +1,12 @@
-
+#ifndef LinkedListOfPlaca_h
+#define LinkedListOfPlaca_h
+#include "NodoPlaca.h"
 class LinkedListOfPlaca{
   NodoPlaca* head;
   NodoPlaca* tail;
   int count;
   public:
-    LinkedListOfPLaca();
+    LinkedListOfPlaca();
     void imprimeLista();
     bool isEmpty();
     int size();
@@ -14,3 +16,4 @@ class LinkedListOfPlaca{
     void add(std::string tipoPlaca, std::string latitude, std::string longitude);
 
 };
+#endif
