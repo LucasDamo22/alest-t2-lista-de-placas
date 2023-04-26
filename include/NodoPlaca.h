@@ -7,10 +7,11 @@ class NodoPlaca{
     std::string tipoPlaca;
     std::string latitude;
     std::string longitude;
+    std::string data;
 
     std::string to_String();
     NodoPlaca();
-    NodoPlaca(std::string tipoPlaca, std::string latitude, std::string longitude);
+    NodoPlaca(std::string tipoPlaca, std::string latitude, std::string longitude, std::string data);
 };
 
 #endif

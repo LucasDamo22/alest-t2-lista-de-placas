@@ -5,11 +5,12 @@
 
 NodoPlaca::NodoPlaca(){}
 
-NodoPlaca::NodoPlaca(std::string tipoPlaca, std::string latitude, std::string longitude){
+NodoPlaca::NodoPlaca(std::string tipoPlaca, std::string latitude, std::string longitude, std::string data){
     
     this->tipoPlaca = tipoPlaca;
     this->latitude = latitude;
     this->latitude = latitude;
+    this->data = data;
     this->next = NULL;
 }
 std::string NodoPlaca::to_String(){

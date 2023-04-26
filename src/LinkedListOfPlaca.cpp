@@ -22,9 +22,9 @@ void LinkedListOfPlaca::imprimeLista(){
 
     }while(ptr!=NULL);
 }
-void LinkedListOfPlaca::add(std::string tipoPlaca, std::string latitude, std::string longitude){
+void LinkedListOfPlaca::add(std::string tipoPlaca, std::string latitude, std::string longitude,std::string data){
     
-    NodoPlaca *n = new NodoPlaca(tipoPlaca,latitude,longitude);
+    NodoPlaca *n = new NodoPlaca(tipoPlaca,latitude,longitude,data);
     if(head == NULL){
         head = n;
     }else{

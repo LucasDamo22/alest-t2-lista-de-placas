@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<sstream>
+#include "DoubleLinkedListOfRua.h"
 
 #define DATA_EXTRACAO 0
 #define DESCRICAO 1
@@ -20,7 +21,7 @@
 
 using namespace std;
 
-void read_record(){
+void read_record(DoubleLinkedListOfRua* listaRuas){
 	// ponteiro para o arquivo
 	fstream fin;
 
@@ -112,7 +113,9 @@ void read_record(){
 
 
 int main(void){
-    read_record();
+
+    DoubleLinkedListOfRua listaRuas;
+    read_record(&listaRuas);
 
     //  string s = "TRAV GERMANO GARCIA";
     //  string sId = s.substr(0, s.find(" "));

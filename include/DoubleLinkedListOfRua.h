@@ -13,7 +13,8 @@ public:
     int totalPLacas();
     std::string placasSemLatLong();
     void add(std::string rua);
-    void add(std::string rua, std::string tipoPlaca, std::string latitude, std::string longitude);
+    void add(int index,std::string rua);
+    void add(std::string rua, std::string tipoPlaca, std::string latitude, std::string longitude, std::string data);
 
 };
 
