@@ -19,6 +19,7 @@ std::string NodoPlaca::to_String(){
     ss << "tipo de Placa :"<< this->tipoPlaca<<std::endl;
     ss << "Longitude :"<< this->longitude<<std::endl;
     ss << "Latitude :"<< this->latitude<<std::endl;
+    ss << "Data de instalação :"<< this->data<<std::endl;
     return ss.str();
 }
 

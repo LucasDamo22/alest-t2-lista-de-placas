@@ -21,7 +21,96 @@
 
 using namespace std;
 
-void read_record(DoubleLinkedListOfRua* listaRuas){
+// void read_record(){
+// 	// ponteiro para o arquivo
+// 	fstream fin;
+
+// 	// abre o arquivo
+// 	fin.open("./data/sample.csv", ios::in);
+
+// 	// strings auxiliares para leitura
+// 	string line, word, temp;
+
+//     // primeira leitura, para eliminar o cabeçalho
+//     getline(fin, line);
+
+//     // enquanto nao for o fim do arquivo... segue lendo...
+// 	while (!fin.eof()) {
+
+// 		// pega uma linha do arquivo e coloca dentro de "line"
+// 		getline(fin, line);
+
+
+// 		// transforma essa linha em um fluxo
+// 		stringstream s(line);
+
+// 		// lê cada coluna, ou seja, até chegar no ";"
+// 		// e coloca o conteudo dentro de "word"
+//         cout<<"================================="<<endl;
+//         int index = 0;
+// 		while (getline(s, word, ';')) {
+            
+//             switch(index){
+//                 case(DATA_EXTRACAO):
+//                     cout << "Data de Extracao: " << word << endl;
+//                     break;
+//                 case(DESCRICAO):
+//                     cout << "Descricao: " << word << endl;
+//                     break;
+//                 case (ESTADO):
+//                     cout << "Estado: " << word << endl;
+//                     break;
+//                 case (COMPLEMENTO):
+//                     cout << "Complemento: " << word << endl;
+//                     break;
+//                 case (IMPLANTACAO):
+//                     cout << "Implantação: " << word << endl;
+//                     break;
+//                 case (LOGRADOURO_NOME):
+//                     {
+//                     string s = word;
+//                     string sType = s.substr(0, s.find(" "));
+//                     string logradouro  =s.substr(s.find(" ")+1, s.length());
+//                     cout << "Logradouro: " << logradouro <<"  tipo: "<< sType << endl;}
+//                     break;
+//                 case (NUM_INICIAL):
+//                     cout << "Numero Inicial: " << word << endl;
+//                     break;
+//                 case (NUM_FINAL):
+//                     cout << "Numero Final: " << word << endl;
+//                     break;
+//                 case (DEFRONTE):
+//                     cout << "Defronte: " << word << endl;
+//                     break;
+//                 case (CRUZAMENTO_NOME):
+//                     cout << "Nome do Cruzamento: " << word << endl;
+//                     break;
+//                 case (LADO ):
+//                     cout << "Lado: " << word << endl;
+//                     break;
+//                 case (FLUXO ):
+//                     cout << "Fluxo : " << word << endl;
+//                     break;
+//                 case (LOCAL_DE_INSTAL ):
+//                     cout << "Local de Instalação: " << word << endl;
+//                     break;
+//                 case (LATITUDE ):
+//                     cout << "Latitude: " << word << endl;
+//                     break;
+//                 case (LONGITUDE ):
+//                     cout << "Longitude: " << word << endl;
+//                     break;
+//                 default:
+//                     break;
+//             }
+//             index++;
+// 		}
+//         // cout << "Pressione Enter para continuar..." << endl;
+//         // cin.ignore();
+// 	}
+    
+//}
+void read_record(DoubleLinkedListOfRua *l){
 	// ponteiro para o arquivo
 	fstream fin;
 
@@ -49,61 +138,72 @@ void read_record(DoubleLinkedListOfRua* listaRuas){
         cout<<"================================="<<endl;
         int index = 0;
 		while (getline(s, word, ';')) {
-            
+            std::string rua;
+            std::string tipoPlaca;
+            std::string latitude;
+            std::string longitude;
+            std::string data;
+            std::string tipoRua;
             switch(index){
                 case(DATA_EXTRACAO):
-                    cout << "Data de Extracao: " << word << endl;
+                    
                     break;
                 case(DESCRICAO):
-                    cout << "Descricao: " << word << endl;
+                    tipoPlaca = word;
+                    std::cout<<"tipoPlaca"<<word<<std::endl;
                     break;
                 case (ESTADO):
-                    cout << "Estado: " << word << endl;
+                    
                     break;
                 case (COMPLEMENTO):
-                    cout << "Complemento: " << word << endl;
+                    
                     break;
                 case (IMPLANTACAO):
-                    cout << "Implantação: " << word << endl;
+                    data = word;
+                    std::cout<<"data"<<word<<std::endl;
                     break;
                 case (LOGRADOURO_NOME):
                     {
                     string s = word;
-                    string sType = s.substr(0, s.find(" "));
-                    string logradouro  =s.substr(s.find(" ")+1, s.length());
-                    cout << "Logradouro: " << logradouro <<"  tipo: "<< sType << endl;}
+                    tipoRua = s.substr(0, s.find(" "));
+                    rua  =s.substr(s.find(" ")+1, s.length());
+                    std::cout<<"rua"<<word<<std::endl;
+                    }
                     break;
                 case (NUM_INICIAL):
-                    cout << "Numero Inicial: " << word << endl;
+                    
                     break;
                 case (NUM_FINAL):
-                    cout << "Numero Final: " << word << endl;
+                    
                     break;
                 case (DEFRONTE):
-                    cout << "Defronte: " << word << endl;
+                    
                     break;
                 case (CRUZAMENTO_NOME):
-                    cout << "Nome do Cruzamento: " << word << endl;
+                    
                     break;
                 case (LADO ):
-                    cout << "Lado: " << word << endl;
+                    
                     break;
                 case (FLUXO ):
-                    cout << "Fluxo : " << word << endl;
+                    
                     break;
                 case (LOCAL_DE_INSTAL ):
-                    cout << "Local de Instalação: " << word << endl;
+                    
                     break;
                 case (LATITUDE ):
-                    cout << "Latitude: " << word << endl;
+                    latitude = word;
+                    std::cout<<"lat"<<word<<std::endl;
                     break;
                 case (LONGITUDE ):
-                    cout << "Longitude: " << word << endl;
+                    longitude = word;
+                    std::cout<<"long"<<word<<std::endl;
                     break;
                 default:
                     break;
             }
             index++;
+            l->add(rua,tipoRua,tipoPlaca,latitude,longitude,data);
 		}
         // cout << "Pressione Enter para continuar..." << endl;
         // cin.ignore();
@@ -111,11 +211,11 @@ void read_record(DoubleLinkedListOfRua* listaRuas){
     
 }
 
-
 int main(void){
 
     DoubleLinkedListOfRua listaRuas;
     read_record(&listaRuas);
+    //listaRuas.imprimeLista();
 
     //  string s = "TRAV GERMANO GARCIA";
     //  string sId = s.substr(0, s.find(" "));
