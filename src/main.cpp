@@ -137,26 +137,24 @@ void read_record(DoubleLinkedListOfRua *l){
 		// e coloca o conteudo dentro de "word"
         cout<<"================================="<<endl;
         int index = 0;
-		while (getline(s, word, ';')) {
-            std::string rua;
-            std::string tipoPlaca;
-            std::string latitude;
-            std::string longitude;
-            std::string data;
-            std::string tipoRua;
+        std::string rua;
+        std::string tipoPlaca;
+        std::string latitude;
+        std::string longitude;
+        std::string data;
+        std::string tipoRua;
+		while (getline(s, word, ';')) {          
             switch(index){
                 case(DATA_EXTRACAO):
-                    
+                    std::cout<<"dataextra"<<std::endl;
                     break;
-                case(DESCRICAO):
-                    tipoPlaca = word;
-                    std::cout<<"tipoPlaca"<<word<<std::endl;
+                case(DESCRICAO): 
+                    std::cout<<"tipoPlaca"<<"word"<<std::endl;
+                    tipoPlaca = word;                  
                     break;
                 case (ESTADO):
-                    
                     break;
-                case (COMPLEMENTO):
-                    
+                case (COMPLEMENTO):                   
                     break;
                 case (IMPLANTACAO):
                     data = word;
@@ -170,26 +168,19 @@ void read_record(DoubleLinkedListOfRua *l){
                     std::cout<<"rua"<<word<<std::endl;
                     }
                     break;
-                case (NUM_INICIAL):
-                    
+                case (NUM_INICIAL):                    
                     break;
-                case (NUM_FINAL):
-                    
+                case (NUM_FINAL):                   
                     break;
-                case (DEFRONTE):
-                    
+                case (DEFRONTE):                   
                     break;
-                case (CRUZAMENTO_NOME):
-                    
+                case (CRUZAMENTO_NOME):                  
                     break;
-                case (LADO ):
-                    
+                case (LADO ):                 
                     break;
-                case (FLUXO ):
-                    
+                case (FLUXO ):                  
                     break;
-                case (LOCAL_DE_INSTAL ):
-                    
+                case (LOCAL_DE_INSTAL ):                   
                     break;
                 case (LATITUDE ):
                     latitude = word;
@@ -203,8 +194,9 @@ void read_record(DoubleLinkedListOfRua *l){
                     break;
             }
             index++;
-            l->add(rua,tipoRua,tipoPlaca,latitude,longitude,data);
+            
 		}
+        l->add(rua,tipoRua,tipoPlaca,latitude,longitude,data);
         // cout << "Pressione Enter para continuar..." << endl;
         // cin.ignore();
 	}
