@@ -23,6 +23,7 @@ void DoubleLinkedListOfRua::imprimeLista(){
         std::cout << ptr->rua << std::endl;
         ptr->placasNaRua.imprimeLista();
         ptr = ptr->next;
+        std::cout << "==============="<< std::endl;
         if (ptr == NULL)
             break;
     }
@@ -76,22 +77,26 @@ void DoubleLinkedListOfRua::add(std::string rua, std::string tipoRua, std::strin
         
         NodoRua *aux = head;
      
-        for(int i=0;i<=count;i++){
+        for(int i=0;i<count;i++){
             std::cout<<"abublué count"<<i<<std::endl;
+            //se for igual a rua ja existe, sai do loop
             if(aux->rua == rua){
             std::cout<<"abublué pos if"<<std::endl;
-            break;}
+            break;
+            }
             std::cout<<"abublué if aux->rua"<<std::endl;
             if(aux->rua > rua){
                 std::cout<<"abublué add rua"<<std::endl;
-                add(i, rua,tipoRua);
+                add(i, rua,tipoRua); //
                 std::cout<<"abublué post add"<<std::endl;
                 break;
             }
             aux = aux->next;
         }
         ptr = head;
-        while(true){
+        
+        //se a rua ja existe, adiciona as infos na lista de placas
+        while(ptr!=NULL){
             if(rua == ptr->rua){
                 ptr->placasNaRua.add(tipoPlaca,longitude,latitude,data);
                 delete n;
@@ -99,9 +104,8 @@ void DoubleLinkedListOfRua::add(std::string rua, std::string tipoRua, std::strin
             }else{
                 ptr = ptr->next;
             }
-            if(ptr == NULL)
-                break;
         }
+        //ajusta tail;
         n->prev = tail;       
         tail->next = n;
         

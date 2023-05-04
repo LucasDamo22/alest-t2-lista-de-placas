@@ -207,6 +207,7 @@ int main(void){
 
     DoubleLinkedListOfRua listaRuas;
     read_record(&listaRuas);
+    listaRuas.imprimeLista();
     //listaRuas.imprimeLista();
 
     //  string s = "TRAV GERMANO GARCIA";
