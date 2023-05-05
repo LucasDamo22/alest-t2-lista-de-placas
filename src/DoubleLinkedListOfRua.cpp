@@ -5,13 +5,13 @@
 #define IndexOutOfBoundsException 0
 
 DoubleLinkedListOfRua::DoubleLinkedListOfRua(){
-    this->head = NULL;
-    this->tail = NULL;
+    this->head = nullptr;
+    this->tail = nullptr;
     this->count = 0;
 }
 void DoubleLinkedListOfRua::imprimeLista(){
     NodoRua *ptr;
-    if (head == NULL)
+    if (head == nullptr)
     {
         // printf("--- Lista Vazia\n");
         return;
@@ -24,54 +24,55 @@ void DoubleLinkedListOfRua::imprimeLista(){
         ptr->placasNaRua.imprimeLista();
         ptr = ptr->next;
         std::cout << "==============="<< std::endl;
-        if (ptr == NULL)
+        if (ptr == nullptr)
             break;
     }
     std::cout << "--- Fim da lista ---" << std::endl;
 }
 bool DoubleLinkedListOfRua::isEmpty(){
-    if(head!=NULL)
+    if(head!=nullptr)
         return true;
     else
         return false;
 }
-void DoubleLinkedListOfRua::add(std::string rua,std::string tipoRua){
-    NodoRua *ptr;
-    NodoRua *n = new NodoRua(rua,tipoRua);
-    if(head==NULL){
-        head = n;
-        tail = n;
-        count++;
-    }else{
-        ptr = head;
+// void DoubleLinkedListOfRua::add(std::string rua,std::string tipoRua){
+//     NodoRua *ptr;
+//     NodoRua *n = new NodoRua(rua,tipoRua);
+//     if(head==nullptr){
+//         head = n;
+//         tail = n;
+//         count++;
+//     }else{
+//         ptr = head;
 
-        while(true){
-            if(rua == ptr->rua){
-                delete n;
-            }else{
-                ptr = ptr->next;
-            }
-            if(ptr==NULL){
-                break;
-            }
-        }
-        tail->next = n;
-        tail->next;
-        count++;
-    }
+//         while(true){
+//             if(rua == ptr->rua){
+//                 delete n;
+//             }else{
+//                 ptr = ptr->next;
+//             }
+//             if(ptr==nullptr){
+//                 break;
+//             }
+//         }
+//         tail->next = n;
+//         tail->next;
+//         count++;
+//     }
+// }
 
-}
 void DoubleLinkedListOfRua::add(std::string rua, std::string tipoRua, std::string tipoPlaca, std::string latitude, std::string longitude, std::string data){
     NodoRua *ptr;
     NodoRua *n = new NodoRua(rua,tipoRua);
  
     n->placasNaRua.add(tipoPlaca,latitude,longitude,data);
        
-    if(head==NULL){
+    if(head==nullptr){
         
         head = n;
         tail = n;
         count++;
+        std::cout<<"added rua"<<std::endl;
         return;
     }else{
         
@@ -96,9 +97,9 @@ void DoubleLinkedListOfRua::add(std::string rua, std::string tipoRua, std::strin
         ptr = head;
         
         //se a rua ja existe, adiciona as infos na lista de placas
-        while(ptr!=NULL){
+        while(ptr!=nullptr){
             if(rua == ptr->rua){
-                ptr->placasNaRua.add(tipoPlaca,longitude,latitude,data);
+                ptr->placasNaRua.addInOrder(tipoPlaca,longitude,latitude,data);
                 delete n;
                 return;
             }else{
@@ -121,7 +122,7 @@ void DoubleLinkedListOfRua::add(int index,std::string rua,std::string tipoRua){
     NodoRua *n = new NodoRua(rua,tipoRua);
     count++;
     if(index ==0){
-        if (head == NULL)
+        if (head == nullptr)
         { // se a lista estiver vazia
             tail = n;
         }
