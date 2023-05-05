@@ -135,7 +135,6 @@ void read_record(DoubleLinkedListOfRua *l){
 
 		// lê cada coluna, ou seja, até chegar no ";"
 		// e coloca o conteudo dentro de "word"
-        cout<<"================================="<<endl;
         int index = 0;
         std::string rua;
         std::string tipoPlaca;
@@ -145,11 +144,9 @@ void read_record(DoubleLinkedListOfRua *l){
         std::string tipoRua;
 		while (getline(s, word, ';')) {          
             switch(index){
-                case(DATA_EXTRACAO):
-                    std::cout<<"dataextra"<<std::endl;
+                case(DATA_EXTRACAO):                   
                     break;
-                case(DESCRICAO): 
-                    std::cout<<"tipoPlaca"<<"word"<<std::endl;
+                case(DESCRICAO):                   
                     tipoPlaca = word;                  
                     break;
                 case (ESTADO):
@@ -157,15 +154,13 @@ void read_record(DoubleLinkedListOfRua *l){
                 case (COMPLEMENTO):                   
                     break;
                 case (IMPLANTACAO):
-                    data = word;
-                    std::cout<<"data"<<word<<std::endl;
+                    data = word;                  
                     break;
                 case (LOGRADOURO_NOME):
                     {
                     string s = word;
                     tipoRua = s.substr(0, s.find(" "));
-                    rua  =s.substr(s.find(" ")+1, s.length());
-                    std::cout<<"rua"<<word<<std::endl;
+                    rua  =s.substr(s.find(" ")+1, s.length());                   
                     }
                     break;
                 case (NUM_INICIAL):                    
@@ -183,12 +178,10 @@ void read_record(DoubleLinkedListOfRua *l){
                 case (LOCAL_DE_INSTAL ):                   
                     break;
                 case (LATITUDE ):
-                    latitude = word;
-                    std::cout<<"lat"<<word<<std::endl;
+                    latitude = word;                   
                     break;
                 case (LONGITUDE ):
-                    longitude = word;
-                    std::cout<<"long"<<word<<std::endl;
+                    longitude = word;                   
                     break;
                 default:
                     break;

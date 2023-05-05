@@ -14,6 +14,7 @@ class LinkedListOfPlaca{
     bool contains(std::string element);
     std::string toString();
     void add(std::string tipoPlaca, std::string latitude, std::string longitude,std::string data);
+    void addInOrder(std::string tipoPlaca, std::string latitude, std::string longitude,std::string data);
 
 };
 #endif

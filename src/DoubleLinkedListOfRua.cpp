@@ -78,17 +78,17 @@ void DoubleLinkedListOfRua::add(std::string rua, std::string tipoRua, std::strin
         NodoRua *aux = head;
      
         for(int i=0;i<count;i++){
-            std::cout<<"abublué count"<<i<<std::endl;
+            
             //se for igual a rua ja existe, sai do loop
             if(aux->rua == rua){
-            std::cout<<"abublué pos if"<<std::endl;
+            
             break;
             }
-            std::cout<<"abublué if aux->rua"<<std::endl;
+            
             if(aux->rua > rua){
-                std::cout<<"abublué add rua"<<std::endl;
+                
                 add(i, rua,tipoRua); //
-                std::cout<<"abublué post add"<<std::endl;
+                
                 break;
             }
             aux = aux->next;
