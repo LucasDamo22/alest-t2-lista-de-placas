@@ -38,49 +38,38 @@ void LinkedListOfPlaca::addInOrder(std::string tipoPlaca, std::string latitude, 
     NodoPlaca *n = new NodoPlaca(tipoPlaca,latitude,longitude,data);
     NodoPlaca *ptr;
    
-    //std::cout<<"init add order "<<tipoPlaca<<std::endl;
+    
     if(head == nullptr){
         head = n;
         tail = n;
         return;
-    }else{
+    }else{ 
         ptr = head;
+        if((compare1minor2(ptr->data,n->data)>0) /*&& compare1minor2(ptr->next->data,n->data)>0*/){
+            n->next = head;
+            head = n;
+            return;
+        }
+        
         while(ptr->next!=nullptr){
-            std::cout<<"========="<<std::endl;
-            // std::cout<<ptr->data<<std::endl;
-            // std::cout<<n->data<<std::endl;
-            // std::cout<<"+++"<<std::endl;
-            // std::cout<<compare1minor2(ptr->data,n->data)<<std::endl;
-            // std::cout<<"+++"<<std::endl;
-
-            std::cout<<"*****************"<<std::endl;
-            std::cout<<ptr->data<<"  "<<n->data<<std::endl;
-            std::cout<<ano(ptr->data)<<"  "<<ano(n->data)<<std::endl;
-            std::cout<<mes(ptr->data)<<"  "<<mes(n->data)<<std::endl;
-            std::cout<<dia(ptr->data)<<"  "<<dia(n->data)<<std::endl;
-            std::cout<<compare1minor2(ptr->data,n->data)<<std::endl;
-
-
-
+          
            if((compare1minor2(ptr->data,n->data)<=0) && compare1minor2(ptr->next->data,n->data)>0){
-           std::cout<<"true"<<std::endl;
+           
                 break;
            }
-        //    std::cout<< "isnt breaking"<<std::endl;
-        //    std::cout<<ptr->tipoPlaca<<std::endl;
-        //    std::cout<<n->tipoPlaca<<std::endl;
+       
            ptr = ptr->next;
-           std::cout<<"////////////////"<<std::endl;
+           
         }
-        std::cout<<"before if"<<std::endl;
+        
         if(ptr->next==nullptr){
             ptr->next = n;
             tail = n;
             return;
         }
-        std::cout<<"before next"<<std::endl;
+        
         n->next = ptr->next;
-        std::cout<<"after next"<<std::endl;
+        
         ptr->next  = n ;
        
         

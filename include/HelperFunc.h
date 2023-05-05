@@ -30,7 +30,7 @@ int compare1minor2(std::string dataPtr,std::string dataN){
     if((mes(dataPtr)< mes(dataN)) && (ano(dataPtr) <= ano(dataN))){
         return -1;
     }
-    if ((dia(dataPtr) < dia(dataN)) && (mes(dataPtr)< mes(dataN)) && (ano(dataPtr) <= ano(dataN))){
+    if ((dia(dataPtr) < dia(dataN)) && (mes(dataPtr)<= mes(dataN)) && (ano(dataPtr) <= ano(dataN))){
         return -1;
     }
 
