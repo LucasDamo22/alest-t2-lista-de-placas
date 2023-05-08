@@ -33,14 +33,8 @@ int compare1minor2(std::string dataPtr,std::string dataN){
     if ((dia(dataPtr) < dia(dataN)) && (mes(dataPtr)<= mes(dataN)) && (ano(dataPtr) <= ano(dataN))){
         return -1;
     }
-
     return 1;
-
 }
-
-
-
-
 
 
 #endif
