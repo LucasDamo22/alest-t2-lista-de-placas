@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<sstream>
+#include "HelperFunc.h"
 #include "DoubleLinkedListOfRua.h"
 
 #define DATA_EXTRACAO 0
@@ -200,7 +201,10 @@ int main(void){
 
     DoubleLinkedListOfRua listaRuas;
     read_record(&listaRuas);
-    listaRuas.imprimeLista();
+    //listaRuas.imprimeLista();
+    // std::cout<<listaRuas.totalPLacas()<<std::endl;
+    // std::cout<<listaRuas.size()<<std::endl;
+    menu(&listaRuas);
     //listaRuas.imprimeLista();
 
     //  string s = "TRAV GERMANO GARCIA";

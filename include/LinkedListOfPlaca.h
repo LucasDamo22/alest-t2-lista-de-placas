@@ -13,6 +13,8 @@ class LinkedListOfPlaca{
     void clear();
     bool contains(std::string element);
     std::string toString();
+    NodoPlaca* get_head();
+    NodoPlaca* get_tail();
     void add(std::string tipoPlaca, std::string latitude, std::string longitude,std::string data);
     void addInOrder(std::string tipoPlaca, std::string latitude, std::string longitude,std::string data);
 

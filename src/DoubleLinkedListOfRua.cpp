@@ -72,7 +72,6 @@ void DoubleLinkedListOfRua::add(std::string rua, std::string tipoRua, std::strin
         head = n;
         tail = n;
         count++;
-        std::cout<<"added rua"<<std::endl;
         return;
     }else{
         
@@ -147,4 +146,52 @@ void DoubleLinkedListOfRua::add(int index,std::string rua,std::string tipoRua){
         n->next->prev = n;
     }
 
+}
+
+// int DoubleLinkedListOfRua::totalPLacas(){
+//     int placas = 0;
+//     NodoRua* ptr;
+//     if(head==nullptr){
+//         std::cout<<"lista vazia!"<<std::endl;
+//         return 0;
+//     }else{
+//         ptr = head;
+//         while(ptr!=nullptr){
+//             placas+=ptr->placasNaRua.size();
+//             ptr = ptr->next;
+//         }
+        
+//         return placas;
+//     }
+// }
+int DoubleLinkedListOfRua::totalPLacas(){
+    int placas = 0;
+    NodoRua* ptr;
+    if(head==nullptr){
+        std::cout<<"lista vazia!"<<std::endl;
+        return 0;
+    }else{
+        ptr = head;
+        while(ptr!=nullptr){
+            placas+=placasNaRua(ptr);
+            ptr = ptr->next;
+        }
+        
+        return placas;
+    }
+}
+
+int DoubleLinkedListOfRua::placasNaRua(NodoRua* rua){
+    return rua->placasNaRua.size();
+}
+
+int DoubleLinkedListOfRua::size(){
+    return count;
+}
+
+NodoRua* DoubleLinkedListOfRua::get_head(){
+    return head;
+}
+NodoRua* DoubleLinkedListOfRua::get_tail(){
+    return tail;
 }

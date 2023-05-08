@@ -17,7 +17,7 @@ void LinkedListOfPlaca::imprimeLista(){
     }
     ptr = head;
     do{
-        std::cout<<ptr->to_String()<<std::endl;
+        std::cout<<ptr->toString()<<std::endl;
         ptr = ptr->next;
 
     }while(ptr!=nullptr);
@@ -37,20 +37,22 @@ void LinkedListOfPlaca::add(std::string tipoPlaca, std::string latitude, std::st
 void LinkedListOfPlaca::addInOrder(std::string tipoPlaca, std::string latitude, std::string longitude,std::string data){
     NodoPlaca *n = new NodoPlaca(tipoPlaca,latitude,longitude,data);
     NodoPlaca *ptr;
-   
+    count++;
     
     if(head == nullptr){
         head = n;
         tail = n;
+        
         return;
     }else{ 
         ptr = head;
         if((compare1minor2(ptr->data,n->data)>0) /*&& compare1minor2(ptr->next->data,n->data)>0*/){
             n->next = head;
             head = n;
+            
             return;
         }
-        
+
         while(ptr->next!=nullptr){
           
            if((compare1minor2(ptr->data,n->data)<=0) && compare1minor2(ptr->next->data,n->data)>0){
@@ -65,12 +67,14 @@ void LinkedListOfPlaca::addInOrder(std::string tipoPlaca, std::string latitude, 
         if(ptr->next==nullptr){
             ptr->next = n;
             tail = n;
+            
             return;
         }
         
         n->next = ptr->next;
         
         ptr->next  = n ;
+        
        
         
     }
@@ -78,6 +82,16 @@ void LinkedListOfPlaca::addInOrder(std::string tipoPlaca, std::string latitude, 
 }
 bool LinkedListOfPlaca::isEmpty(){
     return (head == nullptr);
+}
+
+int LinkedListOfPlaca::size(){
+    return count;
+}
+NodoPlaca* LinkedListOfPlaca::get_head(){
+    return head;
+}
+NodoPlaca* LinkedListOfPlaca::get_tail(){
+    return tail;
 }
 
 

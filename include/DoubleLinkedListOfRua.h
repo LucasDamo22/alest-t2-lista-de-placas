@@ -11,6 +11,9 @@ public:
     int size();
     void imprimeLista();
     int totalPLacas();
+    NodoRua* get_head();
+    NodoRua* get_tail();
+    int placasNaRua(NodoRua* rua);
     std::string placasSemLatLong();
     void add(std::string rua,std::string tipoRua);
     void add(int index,std::string rua,std::string tipoRua);

@@ -9,7 +9,7 @@ class NodoPlaca{
     std::string longitude;
     std::string data;
 
-    std::string to_String();
+    std::string toString();
     NodoPlaca();
     NodoPlaca(std::string tipoPlaca, std::string latitude, std::string longitude, std::string data);
 };
