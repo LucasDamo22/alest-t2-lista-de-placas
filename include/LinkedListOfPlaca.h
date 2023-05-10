@@ -15,6 +15,7 @@ class LinkedListOfPlaca{
     std::string toString();
     NodoPlaca* get_head();
     NodoPlaca* get_tail();
+    int compare_data(std::string target);
     void add(std::string tipoPlaca, std::string latitude, std::string longitude,std::string data);
     void addInOrder(std::string tipoPlaca, std::string latitude, std::string longitude,std::string data);
 

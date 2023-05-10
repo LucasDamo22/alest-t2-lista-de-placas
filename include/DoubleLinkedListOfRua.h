@@ -15,6 +15,7 @@ public:
     NodoRua* get_tail();
     int placasNaRua(NodoRua* rua);
     std::string placasSemLatLong();
+    std::string diasComMaisPlacas();
     void add(std::string rua,std::string tipoRua);
     void add(int index,std::string rua,std::string tipoRua);
     void add(std::string rua, std::string tipoRua,std::string tipoPlaca, std::string latitude, std::string longitude, std::string data);

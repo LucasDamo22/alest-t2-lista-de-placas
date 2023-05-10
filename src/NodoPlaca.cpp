@@ -23,4 +23,7 @@ std::string NodoPlaca::toString(){
     //ss << "-------"<<std::endl;
     return ss.str();
 }
+std::string NodoPlaca::get_data(){
+    return this->data;
+}
 
