@@ -114,7 +114,7 @@ using namespace std;
 void read_record(DoubleLinkedListOfRua *l){
 	// ponteiro para o arquivo
 	fstream fin;
-
+    std::cout<<"1"<<std::endl;
 	// abre o arquivo
 	fin.open("./data/sample.csv", ios::in);
 
@@ -190,39 +190,22 @@ void read_record(DoubleLinkedListOfRua *l){
             index++;
             
 		}
+        
         l->add(rua,tipoRua,tipoPlaca,latitude,longitude,data);
-        // cout << "Pressione Enter para continuar..." << endl;
-        // cin.ignore();
+   
 	}
     
 }
 
 int main(void){
 
-    DoubleLinkedListOfRua listaRuas;
-    read_record(&listaRuas);
-    //listaRuas.imprimeLista();
-    // std::cout<<listaRuas.totalPLacas()<<std::endl;
-    // std::cout<<listaRuas.size()<<std::endl;
-    menu(&listaRuas);
-    //listaRuas.imprimeLista();
-
-    //  string s = "TRAV GERMANO GARCIA";
-    //  string sId = s.substr(0, s.find(" "));
-    //  string token = s.substr(s.find(" ")+1, s.length());
-    //  cout << s << endl;
-    //  cout << sId << endl;
-    //  cout << token << endl;
-
-    // string s1 = "Ipiranga";
-    // string s2 = "Bento Goncalves";
-    // if(s1.compare(s2) < 0)
-    //     cout << s1 << " vem antes de " << s2 << endl;
-    // else if(s1.compare(s2) > 0)
-    //     cout << s2 << " vem antes de " << s1 << endl;
-    // else
-    //     cout << s2 << " eh igual a " << s1 << endl;
-
-
+    DoubleLinkedListOfRua* listaRuas = new DoubleLinkedListOfRua();
+    
+    read_record(listaRuas);
+    
+ 
+    menu(listaRuas);
+    
+    
     return 0;
 }

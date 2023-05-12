@@ -107,7 +107,11 @@ NodoPlaca *LinkedListOfPlaca::get_tail()
 int LinkedListOfPlaca::compare_data(std::string target){
     NodoPlaca* ptr = head;
     int count = 0;
-
+    
+    if(head == nullptr){
+        
+        return count;
+    }
     while(ptr!=nullptr){
         if(target == ptr->data){
             count++;

@@ -5,7 +5,7 @@ class NodoRua{
     public:
         std::string rua;
         std::string tipoRua;
-        LinkedListOfPlaca placasNaRua;
+        LinkedListOfPlaca* placasNaRua;
 
         NodoRua* next;
         NodoRua* prev;
