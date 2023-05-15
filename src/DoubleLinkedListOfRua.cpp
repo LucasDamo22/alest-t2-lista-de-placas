@@ -250,7 +250,7 @@ std::string DoubleLinkedListOfRua::diasComMaisPlacas()
 
     while (ruaSelec != nullptr) // iterador passando de rua em rua para selecionar as datas a serem comparadas
     {
-        std::cout<<ruaSelec->rua<<std::endl;
+        std::cout << ruaSelec->rua << std::endl;
 
         dataSelec = ruaSelec->placasNaRua->get_head();
         while (dataSelec != nullptr) // iterador passando de data em data para selecionar a data da vez
@@ -260,63 +260,47 @@ std::string DoubleLinkedListOfRua::diasComMaisPlacas()
 
             data_temp = dataSelec->get_data();
             ptr = ruaSelec;
-             if (std::find(datasVerificadas.begin(), datasVerificadas.end(), data_temp) != datasVerificadas.end())
-                    {
-                        break;
-                    }
+            if (std::find(datasVerificadas.begin(), datasVerificadas.end(), data_temp) != datasVerificadas.end())
+            {
+                std::cout << "data ja verificada" << std::endl;
+                break;
+            }
             while (ptr != nullptr) // iterador que passa em todas as ruas para comparar com a data escolhida
             {
                 // partindo da ultima rua testada
                 placaPtr = ptr->placasNaRua->get_head();
-                //while (placaPtr != nullptr) // iterador que passa em todas as placas para comparar com a data escolhida
-                //{
-
-                   
-
-                    aparicoes += ptr->placasNaRua->compare_data(data_temp);
-
-                    std::cout<<aparicoes<<std::endl;
-                    std::cout<<data_temp<<std::endl;
-                    std::cout<<"*****************"<<std::endl;
-                    //placaPtr = placaPtr->next;
-                //}
-                    
                 if (ptr->next == nullptr)
                 {
-                    
+
                     // comparando com as 10 maiores após chegar no final das ruas
                     for (int i = 0; i < 10; i++)
                     {
-                        
-                        
                         if (std::stoi(datas_vet[i][1]) < aparicoes)
                         {
-                               
                             substitui_menor(datas_vet, aparicoes, data_temp);
+                            break; // break para fazer com que ele substitua o menor valor apenas 1 vez;
                         }
-                        
                     }
                 }
                 ptr = ptr->next;
-
             }
             datasVerificadas.push_back(dataSelec->get_data());
             dataSelec = dataSelec->next;
         }
-        
+
         ruaSelec = ruaSelec->next;
     }
-    
 
-    for(auto it : datasVerificadas){
-        std::cout<< it <<std::endl;
-    }
+    // for automatico para verificar as datas verificadas, para debug
+    // for(auto it : datasVerificadas){
+    //     std::cout<< it <<std::endl;
+    // }
 
     std::stringstream ss;
     ss << "Datas que mais acontecem" << std::endl;
     for (int i = 0; i < 10; i++)
     {
-        ss << i+1 << "-" << datas_vet[i][0] << " => " << datas_vet[i][1] << std::endl;
+        ss << i + 1 << "-" << datas_vet[i][0] << " => " << datas_vet[i][1] << std::endl;
     }
     return ss.str();
 }

@@ -257,14 +257,12 @@ void substitui_menor(std::string vet[][2], int element, std::string data)
     int menor_valor = std::stoi(vet[0][1]);
     int pos=0;
     
-    for (int i = 0; i < 9; i++)
+    for (int i = 0; i < 10; i++)
     {   
         if (std::stoi(vet[i][1]) < menor_valor)
         {
-            //std::cout<<vet[i][0]<<std::endl;
-            // std::cout<<data<<std::endl;
-            // std::cout<<element<<std::endl;
-            // std::cout<<"*************************"<<std::endl;
+
+            
             menor_valor = std::stoi(vet[i][1]);
             pos = i;
         }
@@ -274,5 +272,6 @@ void substitui_menor(std::string vet[][2], int element, std::string data)
     vet[pos][1] = std::to_string(element);
     
     vet[pos][0] = data;
+   
     
 }
