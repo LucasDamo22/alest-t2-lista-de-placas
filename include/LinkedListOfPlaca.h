@@ -12,6 +12,7 @@ class LinkedListOfPlaca{
     int size();
     void clear();
     bool contains(std::string element);
+    std::string semLatLong(std::string rua);
     std::string toString();
     NodoPlaca* get_head();
     NodoPlaca* get_tail();

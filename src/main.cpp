@@ -116,7 +116,7 @@ void read_record(DoubleLinkedListOfRua *l){
 	fstream fin;
     std::cout<<"1"<<std::endl;
 	// abre o arquivo
-	fin.open("./data/sample.csv", ios::in);
+	fin.open("./data/data.csv", ios::in);
 
 	// strings auxiliares para leitura
 	string line, word, temp;

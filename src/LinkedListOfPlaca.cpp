@@ -1,6 +1,6 @@
 #include <string>
 #include <iostream>
-
+#include <sstream>
 #include "HelperFunc.h"
 #include "LinkedListOfPlaca.h"
 
@@ -122,4 +122,34 @@ int LinkedListOfPlaca::compare_data(std::string target){
         ptr = ptr->next;    
     }
     return count;
+}
+
+std::string LinkedListOfPlaca::semLatLong(std::string rua){
+    NodoPlaca* ptr=head;
+    std::stringstream ss;
+    std::stringstream ssS;
+    int count = 0;
+    if(head==nullptr){
+        
+        return ss.str();
+    }else{
+        
+        while(ptr!=nullptr){
+            if(ptr->latitude==""||ptr->longitude==""){
+                ssS<<ptr->toString()<<std::endl;
+                count++;
+            }
+
+            ptr =  ptr->next;
+        }
+        if(count==0){
+            return ss.str();
+        }else{
+            ss<<"Placas sem Lat ou Long na rua: "<<rua<<std::endl<<"---"<<std::endl;
+            ss << ssS.str();
+            return ss.str();
+
+        }
+    }
+
 }

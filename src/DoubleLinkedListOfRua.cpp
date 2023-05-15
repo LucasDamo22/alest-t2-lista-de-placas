@@ -250,19 +250,16 @@ std::string DoubleLinkedListOfRua::diasComMaisPlacas()
 
     while (ruaSelec != nullptr) // iterador passando de rua em rua para selecionar as datas a serem comparadas
     {
-        std::cout << ruaSelec->rua << std::endl;
-
         dataSelec = ruaSelec->placasNaRua->get_head();
         while (dataSelec != nullptr) // iterador passando de data em data para selecionar a data da vez
         {
-
             int aparicoes = 0;
-
             data_temp = dataSelec->get_data();
             ptr = ruaSelec;
+            
             if (std::find(datasVerificadas.begin(), datasVerificadas.end(), data_temp) != datasVerificadas.end())
             {
-                std::cout << "data ja verificada" << std::endl;
+                //std::cout << "data ja verificada" << std::endl;
                 break;
             }
             while (ptr != nullptr) // iterador que passa em todas as ruas para comparar com a data escolhida
@@ -300,10 +297,27 @@ std::string DoubleLinkedListOfRua::diasComMaisPlacas()
     // }
 
     std::stringstream ss;
-    ss << "Datas que mais acontecem" << std::endl;
+    ss << "Datas em que mais sinalizações foram registradas" << std::endl;
+    ordena(datas_vet);
     for (int i = 0; i < 10; i++)
     {
         ss << i + 1 << "-" << datas_vet[i][0] << " => " << datas_vet[i][1] << std::endl;
+    }
+    return ss.str();
+}
+
+std::string DoubleLinkedListOfRua::placasSemLatLong(){
+    NodoRua* ptr = head;
+    std::stringstream ss;
+    if(head == nullptr){
+        ss<<" Lista de ruas vazia!"<<std::endl;
+        return ss.str();
+    }
+
+    while(ptr!=nullptr){
+        ss << ptr->placasNaRua->semLatLong(ptr->rua);
+        ss << "--------------------" << std::endl;
+        ptr = ptr->next;
     }
     return ss.str();
 }

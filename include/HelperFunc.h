@@ -17,7 +17,7 @@ void menu(DoubleLinkedListOfRua* Lista);
 std::string menuNav(NodoRua* iterador);
 NodoRua* navegador(NodoRua* iterador,NodoRua* head, NodoRua* tail);
 void substitui_menor(std::string vet[][2], int element, std::string data);
-
+void ordena(std::string vet[][2]);
 
 
 #endif

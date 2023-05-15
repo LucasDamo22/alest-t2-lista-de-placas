@@ -70,15 +70,18 @@ std::string menuNav(NodoRua *iterador)
     ss << "  2 para avançar 10 ruas" << endl;
     ss << "  3 para avançar 100 ruas" << endl;
     ss << "  4 para avançar 1000 ruas" << endl;
-    ss << "  5 para informações da rua: " << endl;
+    ss << "  --------------------------------------- " << endl;
+    ss << "  5 para informações da rua: " << iterador->rua << endl;
     ss << "  6 para lista de todas as placas da rua: " << endl;
+    ss << "  --------------------------------------- " << endl;
     ss << "  7 para retroceder 1 rua" << endl;
     ss << "  8 para retroceder 10 rua" << endl;
     ss << "  9 para retroceder 100 rua" << endl;
     ss << "  0 para retroceder 1000 rua" << endl;
+    ss << "  --------------------------------------- " << endl;
     ss << "  11 para ir para a primeira rua" << endl;
     ss << "  99 para ir para a ultima rua" << endl;
-    ss << "  999 oara voltar ao menu principal" << endl;
+    ss << "  999 para voltar ao menu principal" << endl;
     ss << "====================================================================" << endl;
 
     return ss.str();
@@ -86,16 +89,16 @@ std::string menuNav(NodoRua *iterador)
 std::string infos(NodoRua *iterador)
 {
     std::stringstream ss;
-    ss << "nome da rua: " << iterador->rua << endl;
-    ss << "quantidade de placas: " << iterador->placasNaRua->size() << endl
+    ss << "Nome da rua: " << iterador->rua << endl;
+    ss << "Quantidade de placas: " << iterador->placasNaRua->size() << endl
        << endl;
 
-    ss << "primeira placa: " << endl;
+    ss << "Primeira placa na rua: " << endl;
     ss << iterador->placasNaRua->get_head()->toString() << endl;
     ss << "--------------------" << endl
        << endl;
 
-    ss << "ultima placa:" << endl;
+    ss << "Ultima placa:" << endl;
     ss << iterador->placasNaRua->get_tail()->toString() << endl;
     ss << "--------------------" << endl
        << endl;
@@ -244,34 +247,50 @@ void menu(DoubleLinkedListOfRua *Lista)
         {
             iterador = navegador(iterador, Lista->get_head(), Lista->get_tail());
         }
-        else if (numSelect == 3){
-            std::cout<<""<<std::endl;
-            std::cout<<Lista->diasComMaisPlacas();
+        else if (numSelect == 3)
+        {
+            std::cout << "" << std::endl;
+            std::cout << Lista->diasComMaisPlacas();
+        }
+        else if (numSelect == 4)
+        {
+            std::cout << "" << std::endl;
+            std::cout << Lista->placasSemLatLong();
         }
     }
 }
 
 void substitui_menor(std::string vet[][2], int element, std::string data)
 {
-    
+
     int menor_valor = std::stoi(vet[0][1]);
-    int pos=0;
-    
+    int pos = 0;
+
     for (int i = 0; i < 10; i++)
-    {   
+    {
         if (std::stoi(vet[i][1]) < menor_valor)
         {
-
-            
             menor_valor = std::stoi(vet[i][1]);
             pos = i;
         }
     }
-    
-    
+
     vet[pos][1] = std::to_string(element);
-    
+
     vet[pos][0] = data;
-   
-    
+}
+
+void ordena(std::string vet[][2]){
+    for (int i =0;i<10;i++){
+        std::string tempSup = vet[i][0];
+        std::string tempinf = vet[i][1];
+        int j=i;
+            while(j>0 && tempinf > vet[j-1][1]){
+                vet[j][0]=vet[j-1][0];
+                vet[j][1]=vet[j-1][1];
+                j = j-1;
+                vet[j][0]=tempSup;
+                vet[j][1]=tempinf;
+            }
+    }
 }
