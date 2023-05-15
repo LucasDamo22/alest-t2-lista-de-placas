@@ -267,14 +267,17 @@ std::string DoubleLinkedListOfRua::diasComMaisPlacas()
             }
             while (ptr != nullptr) // iterador que passa em todas as ruas para comparar com a data escolhida
             {
-                // partindo da ultima rua testada
+
                 placaPtr = ptr->placasNaRua->get_head();
+
+                aparicoes += ptr->placasNaRua->compare_data(data_temp);
                 if (ptr->next == nullptr)
                 {
 
                     // comparando com as 10 maiores após chegar no final das ruas
                     for (int i = 0; i < 10; i++)
                     {
+
                         if (std::stoi(datas_vet[i][1]) < aparicoes)
                         {
                             substitui_menor(datas_vet, aparicoes, data_temp);
