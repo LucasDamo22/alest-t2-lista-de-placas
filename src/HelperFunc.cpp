@@ -125,36 +125,40 @@ NodoRua *navegador(NodoRua *iterador, NodoRua *head, NodoRua *tail)
         {
             for (int i = 0; i < 10; i++)
             {
-                iterador = iterador->next;
+                
                 if (iterador->next == nullptr)
                 {
                     cout << " fim da Lista!" << endl;
                     break;
                 }
+                iterador = iterador->next;
             }
         }
         else if (numSelect == 3)
         {
             for (int i = 0; i < 100; i++)
             {
-                iterador = iterador->next;
+                
                 if (iterador->next == nullptr)
                 {
                     cout << " fim da Lista!" << endl;
                     break;
                 }
+                iterador = iterador->next;
             }
         }
         else if (numSelect == 4)
-        {
+        {   
+            
             for (int i = 0; i < 1000; i++)
             {
-                iterador = iterador->next;
+                
                 if (iterador->next == nullptr)
                 {
                     cout << " fim da Lista!" << endl;
                     break;
                 }
+                iterador = iterador->next;
             }
         }
         else if (numSelect == 5)
@@ -182,36 +186,39 @@ NodoRua *navegador(NodoRua *iterador, NodoRua *head, NodoRua *tail)
         {
             for (int i = 0; i < 10; i++)
             {
-                iterador = iterador->prev;
+                
                 if (iterador->prev == nullptr)
                 {
                     cout << " fim da Lista!" << endl;
                     break;
                 }
+                iterador = iterador->prev;
             }
         }
         else if (numSelect == 9)
         {
             for (int i = 0; i < 100; i++)
             {
-                iterador = iterador->prev;
+                
                 if (iterador->prev == nullptr)
                 {
                     cout << " fim da Lista!" << endl;
                     break;
                 }
+                iterador = iterador->prev;
             }
         }
         else if (numSelect == 0)
         {
             for (int i = 0; i < 1000; i++)
             {
-                iterador = iterador->prev;
+                
                 if (iterador->prev == nullptr)
                 {
                     cout << " fim da Lista!" << endl;
                     break;
                 }
+                iterador = iterador->prev;
             }
         }
         else if (numSelect == 11)
