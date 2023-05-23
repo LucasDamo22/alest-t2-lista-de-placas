@@ -15,9 +15,10 @@ int compare1minor2(std::string dataPtr,std::string dataN);
 
 void menu(DoubleLinkedListOfRua* Lista);
 std::string menuNav(NodoRua* iterador);
-NodoRua* navegador(NodoRua* iterador,NodoRua* head, NodoRua* tail);
+NodoRua* navegador(NodoRua* iterador,NodoRua* head, NodoRua* tail, int totalPlacas);
 void substitui_menor(std::string vet[][2], int element, std::string data);
 void ordena(std::string vet[][2]);
+std::string infos(NodoRua *iterador, int totalPlacas);
 
 
 #endif

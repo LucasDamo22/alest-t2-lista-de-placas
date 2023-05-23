@@ -86,12 +86,21 @@ std::string menuNav(NodoRua *iterador)
 
     return ss.str();
 }
-std::string infos(NodoRua *iterador)
+std::string infos(NodoRua *iterador, int totalPlacas)
 {
     std::stringstream ss;
+    float placasnarua = iterador->placasNaRua->size();
+
+    
+    
+    float qtd_percent = (100*placasnarua)/(totalPlacas);
+    
+    ss.precision(2);
+    
     ss << "Nome da rua: " << iterador->rua << endl;
-    ss << "Quantidade de placas: " << iterador->placasNaRua->size() << endl
-       << endl;
+    ss << "Quantidade de placas: " << iterador->placasNaRua->size() << endl;
+       
+    ss <<"Corresponde a "<< qtd_percent << "% de todas as placas"<<endl <<endl;
 
     ss << "Primeira placa na rua: " << endl;
     ss << iterador->placasNaRua->get_head()->toString() << endl;
@@ -106,7 +115,7 @@ std::string infos(NodoRua *iterador)
     return ss.str();
 }
 
-NodoRua *navegador(NodoRua *iterador, NodoRua *head, NodoRua *tail)
+NodoRua *navegador(NodoRua *iterador, NodoRua *head, NodoRua *tail, int totalPlacas)
 {
     int numSelect = 0;
     do
@@ -163,7 +172,7 @@ NodoRua *navegador(NodoRua *iterador, NodoRua *head, NodoRua *tail)
         }
         else if (numSelect == 5)
         {
-            cout << infos(iterador) << endl;
+            cout << infos(iterador, totalPlacas) << endl;
         }
         else if (numSelect == 6)
         {
@@ -252,7 +261,7 @@ void menu(DoubleLinkedListOfRua *Lista)
         }
         else if (numSelect == 2)
         {
-            iterador = navegador(iterador, Lista->get_head(), Lista->get_tail());
+            iterador = navegador(iterador, Lista->get_head(), Lista->get_tail(), Lista->get_total_placas());
         }
         else if (numSelect == 3)
         {

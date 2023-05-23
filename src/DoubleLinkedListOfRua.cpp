@@ -12,6 +12,7 @@ DoubleLinkedListOfRua::DoubleLinkedListOfRua()
     this->head = nullptr;
     this->tail = nullptr;
     this->count = 0;
+    this->total_placas = 0;
 }
 void DoubleLinkedListOfRua::imprimeLista()
 {
@@ -41,36 +42,13 @@ bool DoubleLinkedListOfRua::isEmpty()
     else
         return false;
 }
-// void DoubleLinkedListOfRua::add(std::string rua,std::string tipoRua){
-//     NodoRua *ptr;
-//     NodoRua *n = new NodoRua(rua,tipoRua);
-//     if(head==nullptr){
-//         head = n;
-//         tail = n;
-//         count++;
-//     }else{
-//         ptr = head;
 
-//         while(true){
-//             if(rua == ptr->rua){
-//                 delete n;
-//             }else{
-//                 ptr = ptr->next;
-//             }
-//             if(ptr==nullptr){
-//                 break;
-//             }
-//         }
-//         tail->next = n;
-//         tail->next;
-//         count++;
-//     }
-// }
 
 void DoubleLinkedListOfRua::add(std::string rua, std::string tipoRua, std::string tipoPlaca, std::string latitude, std::string longitude, std::string data)
 {
     NodoRua *ptr;
     NodoRua *n = new NodoRua(rua, tipoRua);
+    total_placas++;
 
     n->placasNaRua->add(tipoPlaca, latitude, longitude, data);
 
@@ -183,26 +161,31 @@ void DoubleLinkedListOfRua::add(int index, std::string rua, std::string tipoRua)
 //         return placas;
 //     }
 // }
-int DoubleLinkedListOfRua::totalPLacas()
-{
-    int placas = 0;
-    NodoRua *ptr;
-    if (head == nullptr)
-    {
-        std::cout << "lista vazia!" << std::endl;
-        return 0;
-    }
-    else
-    {
-        ptr = head;
-        while (ptr != nullptr)
-        {
-            placas += placasNaRua(ptr);
-            ptr = ptr->next;
-        }
 
-        return placas;
-    }
+// int DoubleLinkedListOfRua::totalPLacas()
+// {
+//     int placas = 0;
+//     NodoRua *ptr;
+//     if (head == nullptr)
+//     {
+//         std::cout << "lista vazia!" << std::endl;
+//         return 0;
+//     }
+//     else
+//     {
+//         ptr = head;
+//         while (ptr != nullptr)
+//         {
+//             placas += placasNaRua(ptr);
+//             ptr = ptr->next;
+//         }
+
+//         return placas;
+//     }
+// }
+
+int DoubleLinkedListOfRua::get_total_placas(){
+    return total_placas;
 }
 
 int DoubleLinkedListOfRua::placasNaRua(NodoRua *rua)

@@ -5,14 +5,16 @@ class DoubleLinkedListOfRua{
     NodoRua* head;
     NodoRua* tail;
     int count;
+    int total_placas;
 public:
     DoubleLinkedListOfRua();
     bool isEmpty();
     int size();
     void imprimeLista();
-    int totalPLacas();
+    
     NodoRua* get_head();
     NodoRua* get_tail();
+    int get_total_placas();
     int placasNaRua(NodoRua* rua);
     std::string placasSemLatLong();
     std::string diasComMaisPlacas();
@@ -20,6 +22,7 @@ public:
     void add(int index,std::string rua,std::string tipoRua);
     void add(std::string rua, std::string tipoRua,std::string tipoPlaca, std::string latitude, std::string longitude, std::string data);
 
+    int totalPLacas();
 };
 
 
