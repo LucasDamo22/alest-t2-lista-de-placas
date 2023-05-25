@@ -1,6 +1,7 @@
 # alest-t2-lista-de-placas
 
 Para compilar o código use o comando "make" na pasta raiz do projeto.
+
 Para executar acesse o executavel através da pasta raiz do projeto : "./bin/main"
 Para remover o executável use o comando "make clean" na pasta raiz do projeto;
 
