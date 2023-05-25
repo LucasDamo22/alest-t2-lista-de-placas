@@ -12,3 +12,7 @@ Built and tested on linux CentOS 7 and Ubuntu 22.04 LTS with C++ 11, and GCC 11.
 ## alteração de BD
 Para alterar o arquivo que o programa faz a consulta é necessário trocar na função "read_record()" no arquivo main.cpp
 
+## observações importantes
+
+Algumas funções do programa imprimem grandes quantidades de dados, como a imprime lista, e o relatorio de sinalizações sem latitude e longitude. Em execução, parece que o programa entrou em loop infinito, entretanto é devido a grande quantidade informações que essas funções geram.
+
