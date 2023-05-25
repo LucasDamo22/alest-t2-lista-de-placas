@@ -16,6 +16,6 @@ Para alterar o arquivo que o programa faz a consulta é necessário trocar na fu
 
 Algumas funções do programa imprimem grandes quantidades de dados, como a imprime lista, e o relatorio de sinalizações sem latitude e longitude. Em execução, parece que o programa entrou em loop infinito, entretanto é devido a grande quantidade informações que essas funções geram.
 
-### link do repo
+## link do repo
 
 https://github.com/LucasDamo22/alest-t2-lista-de-placas
