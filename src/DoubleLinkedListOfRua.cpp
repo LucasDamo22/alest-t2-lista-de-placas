@@ -238,7 +238,7 @@ std::string DoubleLinkedListOfRua::diasComMaisPlacas()
         {
             int aparicoes = 0;
             data_temp = dataSelec->get_data();
-            ptr = ruaSelec;
+            ptr = head;
             
             if (std::find(datasVerificadas.begin(), datasVerificadas.end(), data_temp) != datasVerificadas.end())
             {
@@ -253,7 +253,7 @@ std::string DoubleLinkedListOfRua::diasComMaisPlacas()
                 aparicoes += ptr->placasNaRua->compare_data(data_temp);
                 if (ptr->next == nullptr)
                 {
-
+                    
                     // comparando com as 10 maiores após chegar no final das ruas
                     for (int i = 0; i < 10; i++)
                     {
@@ -286,21 +286,25 @@ std::string DoubleLinkedListOfRua::diasComMaisPlacas()
     {
         ss << i + 1 << "-" << datas_vet[i][0] << " => " << datas_vet[i][1] << std::endl;
     }
+    
     return ss.str();
 }
 
 std::string DoubleLinkedListOfRua::placasSemLatLong(){
     NodoRua* ptr = head;
     std::stringstream ss;
+    int meucont = 0;
     if(head == nullptr){
         ss<<" Lista de ruas vazia!"<<std::endl;
         return ss.str();
     }
 
     while(ptr!=nullptr){
-        ss << ptr->placasNaRua->semLatLong(ptr->rua);
+        ss << ptr->placasNaRua->semLatLong(ptr->rua, meucont);
         ss << "--------------------" << std::endl;
         ptr = ptr->next;
     }
+    ss <<"======================"<<std::endl;
+    ss << "No total, existem "<< meucont << " placas sem latitude ou longitude"<<std::endl;
     return ss.str();
 }

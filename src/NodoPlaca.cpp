@@ -9,7 +9,7 @@ NodoPlaca::NodoPlaca(std::string tipoPlaca, std::string latitude, std::string lo
     
     this->tipoPlaca = tipoPlaca;
     this->latitude = latitude;
-    this->latitude = latitude;
+    this->longitude = longitude;
     this->data = data;
     this->next = nullptr;
 }

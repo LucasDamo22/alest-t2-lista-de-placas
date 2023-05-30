@@ -114,17 +114,18 @@ int LinkedListOfPlaca::compare_data(std::string target){
     }
     while(ptr!=nullptr){
         if(target == ptr->data){
+            // std::cout<< target <<" -- "<<ptr->data<<std::endl;
             count++;
         }
-        if(compare1minor2(target,ptr->data)>0){
-            break;
-        }
+        // if(compare1minor2(target,ptr->data)>0){
+        //     break;
+        // }
         ptr = ptr->next;    
     }
     return count;
 }
 
-std::string LinkedListOfPlaca::semLatLong(std::string rua){
+std::string LinkedListOfPlaca::semLatLong(std::string rua, int &meucont){
     NodoPlaca* ptr=head;
     std::stringstream ss;
     std::stringstream ssS;
@@ -138,6 +139,7 @@ std::string LinkedListOfPlaca::semLatLong(std::string rua){
             if(ptr->latitude==""||ptr->longitude==""){
                 ssS<<ptr->toString()<<std::endl;
                 count++;
+                meucont++;
             }
 
             ptr =  ptr->next;
